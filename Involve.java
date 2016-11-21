@@ -4,4 +4,14 @@ public class Involve extends Operator
     {
         super(EOperator.Involve);
     }
+
+    @Override
+    public char getKey() {
+        return '>';
+    }
+
+    @Override
+    public void display() {
+        // todo
+    }
 }

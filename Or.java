@@ -5,4 +5,14 @@ public class Or extends Operator
 	{
 		super(EOperator.Or);
 	}
+
+	@Override
+	public char getKey() {
+		return '|';
+	}
+
+	@Override
+	public void display() {
+		// todo
+	}
 }

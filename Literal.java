@@ -14,8 +14,13 @@ public class Literal implements IElement
         return EElement.Literal;
     }
 
-    public char getValue()
-    {
+    @Override
+    public char getKey() {
         return value;
+    }
+
+    @Override
+    public void display() {
+        // todo
     }
 }
