@@ -23,11 +23,17 @@ public class Main
     public static void main(String[] args)
     {
         String testString = "( a & b) > c";
+        System.out.println("Formule sous chaine de caracteres : " + testString);
 
         Formula formula = new Formula(testString);
 
-        System.out.println(formula);
+        System.out.println("Formule transformée en utilisant IElements : " + formula);
 
-        System.out.print("Bonjour !");
+        System.out.println("-------------- Subdivision ----------------");
+        SubDivision subDivision = formula.subDivid();
+
+        System.out.println("Premiere formule : " + subDivision.getFirstFormula());
+        System.out.println("Type de resolution : " + subDivision.getResolutionType());
+        System.out.println("Seconde formule : " + subDivision.getSecondFormula());
     }
 }

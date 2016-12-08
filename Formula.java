@@ -121,9 +121,9 @@ public class Formula
     @Override
     public String toString() {
         StringBuilder string = new StringBuilder();
-        string.append("size : ");
+        string.append("size(");
         string.append(elements.size());
-        string.append('\n');
+        string.append(") : ");
         for(int i = 0; i < elements.size(); i++)
         {
             string.append(elements.get(i).toString());
