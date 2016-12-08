@@ -1,54 +1,32 @@
+import java.util.ArrayList;
 
 public class SubDivision
 {
-	private Formula first;
-	private EResolution resolutionType;
-	private Formula second;
-	
-	public SubDivision(Formula first, Operator operator, Formula second)
-	{
-		this.first = first;
-		this.second = second;
+    private EOperator type;
+    private ArrayList<IElement> subElements;
+    private ArrayList<Integer> hingeOperatorIndices;
 
-		computeResolution(operator);
-	}
+    public SubDivision(ArrayList<IElement> elements,
+                       ArrayList<Integer> hingeOperatorIndices,
+                       EOperator operatorType)
+    {
+        this.type = operatorType;
+        this.subElements = elements;
+        this.hingeOperatorIndices = hingeOperatorIndices;
+    }
 
-	public void computeResolution(Operator operator)
-	{
-        switch (operator.getOperatorType())
-        {
-            case And :
-                resolutionType = EResolution.Conjunction;
-                break;
+    public EOperator getType()
+    {
+        return type;
+    }
 
-            case Or :
-                resolutionType = EResolution.Disjunction;
-                break;
+    public ArrayList<IElement> getSubElements()
+    {
+        return subElements;
+    }
 
-            case Involve :
-                resolutionType = EResolution.Disjunction;
-
-                // ajout de la negation sur la premiere formule
-                // et de bracket (au cas ou la formule fait plus d'un litteral)
-                first.insert(0, new OpenBracket());
-                first.insert(0, new Not());
-                first.push_back(new CloseBracket());
-                break;
-        }
-	}
-	
-	public Formula getFirstFormula()
-	{
-		return first;
-	}
-	
-	public EResolution getResolutionType()
-	{
-		return resolutionType;
-	}
-	
-	public Formula getSecondFormula()
-	{
-		return second;
-	}
+    public ArrayList<Integer> getHingeOperatorIndices()
+    {
+        return hingeOperatorIndices;
+    }
 }

@@ -17,23 +17,32 @@
 * */
 
 
+import java.util.ArrayList;
 
 public class Main
 {
     public static void main(String[] args)
     {
-        String testString = "( a & b) > c";
+        //String testString = "( a & b) > c";
+        String testString = "( a & b & c)";
         System.out.println("Formule sous chaine de caracteres : " + testString);
 
         Formula formula = new Formula(testString);
 
         System.out.println("Formule transformée en utilisant IElements : " + formula);
 
-        System.out.println("-------------- Subdivision ----------------");
-        SubDivision subDivision = formula.subDivid();
+        System.out.println("\n-------------- Subdivision ----------------\n");
+        Resolution resolution = formula.resolve();
 
-        System.out.println("Premiere formule : " + subDivision.getFirstFormula());
-        System.out.println("Type de resolution : " + subDivision.getResolutionType());
-        System.out.println("Seconde formule : " + subDivision.getSecondFormula());
+        System.out.println(resolution);
+
+        ArrayList<Formula> formulas = resolution.getFormulas();
+        for(int i = 0; i < formulas.size(); i++)
+        {
+            Formula subFormula = formulas.get(i);
+            System.out.println("\n-------------- Subdivision ----------------\n");
+            Resolution subResolution = subFormula.resolve();
+            System.out.println(subResolution);
+        }
     }
 }
