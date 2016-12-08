@@ -20,8 +20,9 @@
 
 public class Main
 {
-    public static void main(String args)
+    public static void main(String[] args)
     {
         // todo
+        System.out.print("Bonjour !");
     }
 }

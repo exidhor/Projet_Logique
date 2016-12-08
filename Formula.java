@@ -3,6 +3,50 @@ import java.util.ArrayList;
 public class Formula
 {
 	private ArrayList<IElement> elements;
+
+    public Formula(String stringFormula)
+    {
+        elements = new ArrayList<IElement>();
+
+        for(int i = 0; i < stringFormula.length(); i++)
+        {
+            char c = stringFormula.charAt(i);
+            switch(c)
+            {
+            // operator
+                case '&' :
+                    elements.add(new And());
+                    break;
+
+                case '|' :
+                    elements.add(new Or());
+                    break;
+
+                case '>' :
+                    elements.add(new Involve());
+                    break;
+
+            // not
+                case '!' :
+                    elements.add(new Not());
+                    break;
+
+            // brackets
+                case '(' :
+                    elements.add(new OpenBracket());
+                    break;
+
+                case ')' :
+                    elements.add(new CloseBracket());
+                    break;
+
+            // litteral
+                default :
+                    elements.add(new Literal(c));
+                    break;
+            }
+        }
+    }
 	
 	public Formula(ArrayList<IElement> elements)
 	{
@@ -48,4 +92,24 @@ public class Formula
 
 		return null; // error
 	}
+
+	/**
+	 * @brief Insert l'element a l'index specifié et deplace ce qui etait a cet index
+	 * 		  vers la droite
+	 * @param index
+	 * @param element
+	 */
+	void insert(int index, IElement element)
+	{
+		elements.add(index, element);
+	}
+
+    /**
+     * @brief Ajoute un element a la fin
+     * @param element
+     */
+	void push_back(IElement element)
+    {
+        elements.add(element);
+    }
 }
