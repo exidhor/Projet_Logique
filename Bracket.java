@@ -7,6 +7,8 @@ public abstract class Bracket implements IElement
 		this.type = type;
 	}
 
+	abstract int getBracketNumber();
+
     public EElement getElementType()
     {
         return EElement.Bracket;

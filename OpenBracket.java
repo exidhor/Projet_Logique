@@ -7,6 +7,12 @@ public class OpenBracket extends Bracket
     }
 
     @Override
+    int getBracketNumber()
+    {
+        return +1;
+    }
+
+    @Override
     public char getKey() {
         return '(';
     }

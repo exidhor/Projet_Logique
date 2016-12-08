@@ -6,6 +6,12 @@ public class CloseBracket extends Bracket
         super(EBracket.Close);
     }
 
+    @Override
+    int getBracketNumber()
+    {
+        return -1;
+    }
+
     public char getKey()
     {
         return ')';
