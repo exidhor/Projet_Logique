@@ -12,13 +12,20 @@ public class CloseBracket extends Bracket
         return -1;
     }
 
+    @Override
     public char getKey()
     {
         return ')';
     }
 
+    @Override
     public void display()
     {
         // todo
+    }
+
+    @Override
+    public String toString() {
+        return ")";
     }
 }

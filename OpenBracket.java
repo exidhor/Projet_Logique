@@ -21,4 +21,9 @@ public class OpenBracket extends Bracket
     public void display() {
         // todo
     }
+
+    @Override
+    public String toString() {
+        return "(";
+    }
 }

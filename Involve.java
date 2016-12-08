@@ -14,4 +14,9 @@ public class Involve extends Operator
     public void display() {
         // todo
     }
+
+    @Override
+    public String toString() {
+        return ">";
+    }
 }

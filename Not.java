@@ -14,4 +14,9 @@ public class Not implements IElement
     public void display() {
         // todo
     }
+
+    @Override
+    public String toString() {
+        return "!";
+    }
 }

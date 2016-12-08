@@ -22,7 +22,12 @@ public class Main
 {
     public static void main(String[] args)
     {
-        // todo
+        String testString = "( a & b) > c";
+
+        Formula formula = new Formula(testString);
+
+        System.out.println(formula);
+
         System.out.print("Bonjour !");
     }
 }

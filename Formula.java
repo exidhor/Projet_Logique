@@ -13,6 +13,11 @@ public class Formula
             char c = stringFormula.charAt(i);
             switch(c)
             {
+            // space
+                case ' ' :
+                    // do nothing
+                    break;
+
             // operator
                 case '&' :
                     elements.add(new And());
@@ -111,5 +116,20 @@ public class Formula
 	void push_back(IElement element)
     {
         elements.add(element);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder string = new StringBuilder();
+        string.append("size : ");
+        string.append(elements.size());
+        string.append('\n');
+        for(int i = 0; i < elements.size(); i++)
+        {
+            string.append(elements.get(i).toString());
+            string.append(" ");
+        }
+
+        return string.toString();
     }
 }

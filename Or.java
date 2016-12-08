@@ -15,4 +15,9 @@ public class Or extends Operator
 	public void display() {
 		// todo
 	}
+
+	@Override
+	public String toString() {
+		return "|";
+	}
 }

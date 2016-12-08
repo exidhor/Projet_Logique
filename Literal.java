@@ -23,4 +23,9 @@ public class Literal implements IElement
     public void display() {
         // todo
     }
+
+    @Override
+    public String toString() {
+        return Character.toString(value);
+    }
 }

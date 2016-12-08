@@ -7,11 +7,16 @@ public class And extends Operator
 
     @Override
     public char getKey() {
-        return 0;
+        return '&';
     }
 
     @Override
     public void display() {
+        // todo
+    }
 
+    @Override
+    public String toString() {
+        return "&";
     }
 }
