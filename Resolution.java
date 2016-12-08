@@ -113,22 +113,41 @@ public class Resolution
 
         if(elements.get(0).getElementType() != EElement.Not)
         {
-            System.out.println("Erreur, operation negation sur la mauvaise formule(" + formulas.get(0));
+            System.out.println("Erreur, operation negation sur la mauvaise formule(" + formulas.get(0) + ")");
             return;
         }
 
         elements.remove(0); // on retire la negation vu qu'on va la resoudre
 
-        // todo : finir de resoudre la negation
         formulas.get(0).removeExterneBracket();
 
         SubDivision subDivision = formulas.get(0).subDivid();
+        ArrayList<IElement> subElements = new ArrayList<>(subDivision.getSubElements());
 
-        //if(subDivision.)
+        switch(subDivision.getType())
+        {
+            case Involve:
+                ArrayList<IElement> first =  new ArrayList<>(subElements.subList(0,
+                                                             subDivision.getHingeOperatorIndices().get(0)));
+
+                // todo : gerer les differents cas de la negation
+
+
+                if(first.size() > 1)
+                {
+
+                }
+                break;
+
+            case And:
+                break;
+
+            case Or :
+                break;
+        }
+
         for(int i = 0; i < subDivision.getSubElements().size(); i++)
         {
-            ArrayList<IElement> subElements = new ArrayList<IElement>(formulas.get(i).getElements());
-
             if(subElements.size() > 1)
             {
                 subElements.add(0, new OpenBracket());
